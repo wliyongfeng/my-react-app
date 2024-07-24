@@ -1,24 +1,32 @@
 import TransportWebHID from '@ledgerhq/hw-transport-webhid';
-import { SubstrateApp, supportedApps } from '@zondax/ledger-substrate';
+// import TransportWebUSB from "@ledgerhq/hw-transport-webusb";
+import { PolkadotGenericApp } from '@zondax/ledger-substrate';
 import { useEffect } from "react";
 
 async function newPolkadotApp(transport) {
   try {
-    const app = new SubstrateApp(
+    // const app = new SubstrateApp(
+    //   transport,
+    //   supportedApps[0].cla,
+    //   supportedApps[0].slip0044,
+    // );
+
+    const app = new PolkadotGenericApp(
       transport,
-      supportedApps[0].cla,
-      supportedApps[0].slip0044,
+      "dot",
+      'https://api.zondax.ch/polkadot/transaction/metadata'
     );
 
     console.log("app", app);
 
     // const app = await newSubstrateApp(transport, "polkadot");
-    // const bip42Path = `m/44'/354'/${0}'/${0}'/${0}'`;
-    // const address = await app.getAddress(bip42Path, 0, false);
-    // console.log("addr", address);
-    const version = await app.getVersion();
-    console.log("app", app, "version", version);
+    const bip42Path = `m/44'/354'/${0}'/${0}'/${0}'`;
+    const address = await app.getAddress(bip42Path, 0, false);
+    console.log("addr", address);
+    // const version = await app.getVersion();
+    // console.log("app", app, "version", version);
   } catch (e) {
+    console.error(e);
     console.error("returnCode:", e.returnCode, "errorMessage:", e.errorMessage);
   }
 }

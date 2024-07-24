@@ -464,7 +464,7 @@
     "@ledgerhq/hw-transport" "^6.31.1"
     "@ledgerhq/logs" "^6.12.0"
 
-"@ledgerhq/hw-transport-webusb@^6.29.0":
+"@ledgerhq/hw-transport-webusb@^6.29.0", "@ledgerhq/hw-transport-webusb@^6.29.1":
   version "6.29.1"
   resolved "https://registry.npmjs.org/@ledgerhq/hw-transport-webusb/-/hw-transport-webusb-6.29.1.tgz#d8b0798769740dc0a7287ea0b0ba8b88435fe3f5"
   integrity sha512-GWxxXW6VOQkgRM14FhDc0aEQKgiYANdyqdv9nqI55gCst5hW/xSI6MMdlp6lXAZP4Cn79DYecNJi2i/z0+Ozsg==
